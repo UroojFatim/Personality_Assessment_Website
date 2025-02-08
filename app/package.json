@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "postcss quiz/static/css/text.css -o quiz/static/css/output.css",
+    "build": "node init && postcss quiz/static/css/text.css -o quiz/static/css/output.css",
     "watch": "postcss quiz/static/css/text.css -o quiz/static/css/output.css --watch"
   },
   "keywords": [],
