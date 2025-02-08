@@ -1,0 +1,211 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{% static 'css/output.css' %}" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Contact Us</title>
+</head>
+
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900   text-white">
+    <div class="container  mx-auto px-5 py-4 flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="flex items-center text-2xl font-semibold  p-2 rounded-lg">
+        <span>
+            {% load static %}
+            <img src="{% static 'images/logo2.png' %}" alt="Logo" class="w-16 h-auto rounded-2xl" />
+        </span>
+    </a>
+
+      <!-- Menu for Large Screens -->
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="{% url 'base' %}" class="text-red-500">Home <span class="text-sm">&#9662;</span></a>
+        <a href="{% url 'about_us' %}" class="hover:text-gray-300">About Us</a>
+        <a href="#" class="hover:text-gray-300">Jobs <span class="text-sm">&#9662;</span></a>
+        <a href="#" class="hover:text-gray-300">Candidates <span class="text-sm">&#9662;</span></a>
+        <a href="#" class="hover:text-gray-300">Pages <span class="text-sm">&#9662;</span></a>
+        <a href="#" class="hover:text-gray-300">Blog <span class="text-sm">&#9662;</span></a>
+        <a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="hidden md:flex space-x-4 justify-center items-center">
+
+        <a href="{% url 'login' %}">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Login
+          </button>
+        </a>
+      </div>
+
+      <!-- Hamburger Menu -->
+      <div class="md:hidden">
+        <button id="menu-btn" class="text-white focus:outline-none">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="menu" class="md:hidden hidden bg-[#0B0F29]">
+      <a href="#" class="block px-4 py-2 text-red-500">Home</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">About</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">Jobs</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">Candidates</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">Pages</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">Blog</a>
+      <a href="#" class="block px-4 py-2 hover:text-gray-300">Contact Us</a>
+      <a href="#" class="block px-4 py-2 text-white hover:underline">Sign Up</a>
+      <a href="#" class="block px-4 py-2 bg-red-500 text-center text-white rounded-md hover:bg-red-600">Sign
+        In</a>
+    </div>
+  </nav>
+
+  <!-- Google Map Section -->
+  <div class="w-full h-64 border-4 border-gray-400">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.082101572202!2d67.06789367401184!3d24.861045345236708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f24452b63bd%3A0x6541078cce9d7da4!2sMAJU%20-%20Computing%20and%20Engg.%20Block%20(Block%20D)!5e0!3m2!1sen!2s!4v1711995098727!5m2!1sen!2s"
+      class="w-full h-full border-none" allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <!-- Contact Section -->
+  <section class="py-8 bg-sky-200">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-center mb-8">
+        <h6 class="text-blue-600 font-bold">CONTACT</h6>
+        <h2 class="text-2xl font-bold text-gray-800">Get in Touch</h2>
+        <p class="text-gray-600 mt-2">Send us a message or contact us via email, and our team will assist you!</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="flex flex-wrap gap-6 justify-center">
+        <div class="flex flex-col items-center bg-white shadow-md p-6 rounded-lg max-w-xs">
+          <div class="bg-blue-600 p-3 rounded-full mb-4">
+            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+              <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">Our Address</h3>
+          <p class="text-gray-600 text-center">NASTP, Main Shahrah-e-Faisal<br>Karachi, Sindh</p>
+        </div>
+        <div class="flex flex-col items-center bg-white shadow-md p-6 rounded-lg max-w-xs">
+          <div class="bg-blue-600 p-3 rounded-full mb-4">
+            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2">
+              </path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">Contact</h3>
+          <p class="text-gray-600">Mobile: +92 344-8302253</p>
+          <p class="text-gray-600">Email: <a href="mailto:eshalmerab1@gmail.com"
+              class="text-blue-500 underline">eshalmerab1@gmail.com</a></p>
+        </div>
+        <div class="flex flex-col items-center bg-white shadow-md p-6 rounded-lg max-w-xs">
+          <div class="bg-blue-600 p-3 rounded-full mb-4">
+            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+              <path d="M12 7v5l3 3"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold">Working Hours</h3>
+          <p class="text-gray-600 text-center">Monday - Friday: 08:00 - 17:00<br>Saturday & Sunday: 08:00 - 12:00</p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="mt-12 max-w-md mx-auto bg-white shadow-md rounded-lg p-6">
+        <h2 class="text-lg font-bold text-center mb-6">Ready to Get Started?</h2>
+        <form id="contactForm">
+          <input type="text" id="name" name="name" placeholder="Your name" required
+            class="w-full border border-gray-400 rounded-lg p-2 mb-4">
+          <input type="email" id="email" name="email" placeholder="Your email address" required
+            class="w-full border border-gray-400 rounded-lg p-2 mb-4">
+          <input type="text" id="subject" name="subject" placeholder="Subject (Optional)"
+            class="w-full border border-gray-400 rounded-lg p-2 mb-4">
+          <textarea id="textarea" name="textarea" rows="5" placeholder="Write your message..." required
+            class="w-full border border-gray-400 rounded-lg p-2 mb-4"></textarea>
+          <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Send
+            Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-blue-900 text-white py-12">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- About Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">About Us</h4>
+            <p class="text-gray-300">
+                At Recruitment Solutions, we merge technology and psychology to streamline faculty hiring, ensuring equitable and efficient recruitment for institutions seeking exceptional talent.
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Contact Us</h4>
+            <ul class="space-y-2 text-gray-300">
+                <li>Email: <a href="mailto:support@recruitmentsolutions.com" class="hover:text-yellow-300">support@recruitmentsolutions.com</a></li>
+                <li>Phone: +123 456 7890</li>
+                <li>Address: 123 Innovation Drive, Tech City</li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Quick Links</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="hover:text-yellow-300">About Us</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Services</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Testimonials</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Follow Us</h4>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHA8a-u1SWwHz3AVpXEnT-aTPbXAPmzkIb2A&s" alt="Facebook" class="rounded-full w-10">
+                </a>
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png" alt="Twitter" class="rounded-full w-10">
+                </a>
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" class="rounded-full w-10">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-600 mt-8 pt-6 text-center text-gray-400">
+        <p>&copy; 2024 Recruitment Solutions. All rights reserved.</p>
+        <p>Crafted with <span class="text-red-500">&hearts;</span> by Recruitment Solutions Team</p>
+    </div>
+</footer>
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>

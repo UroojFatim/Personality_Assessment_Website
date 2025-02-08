@@ -1,0 +1,318 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Reports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Global Styling */
+        section {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, white, #bbcce8);
+            color: #131111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 30px 0;
+            color: #17181b;
+            text-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        /* Report Container Styling */
+        .report-container {
+            width: 90%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            overflow: hidden;
+            animation: slideUp 1s ease;
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #3a6073, #16222a);
+            color: white;
+            padding: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        /* Table Styling */
+        table {
+            background: linear-gradient(135deg, #105be8, #65a0ff);
+            width: 100%;    
+            border-collapse: collapse;
+            color: #e0e8f9;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        table th {
+            background: rgba(255, 255, 255, 0.2);
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        table td {
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+        }
+
+        table tr:nth-child(even) td {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* No Results Styling */
+        .no-results {
+            padding: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Back Link Button Styling */
+        .back-link {
+            display: inline-block;
+            margin: 30px auto;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .report-container {
+                width: 100%;
+            }
+
+            table th,
+            table td {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="bg-blue-900   text-white">
+        <div class="container  mx-auto px-5 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center text-2xl font-semibold  p-2 rounded-lg">
+                <span>
+                    {% load static %}
+                    <img src="{% static 'images/logo2.png' %}" alt="Logo" class="w-16 h-auto rounded-2xl" />
+                </span>
+            </a>
+
+
+
+            <!-- Menu for Large Screens -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="{% url 'base' %}" class="text-red-500">Home <span class="text-sm">&#9662;</span></a>
+                <a href="{% url 'about_us' %}" class="hover:text-gray-300">About Us</a>
+                <a href="#" class="hover:text-gray-300">Jobs <span class="text-sm">&#9662;</span></a>
+                <a href="#" class="hover:text-gray-300">Candidates <span class="text-sm">&#9662;</span></a>
+                <a href="#" class="hover:text-gray-300">Pages <span class="text-sm">&#9662;</span></a>
+                <a href="#" class="hover:text-gray-300">Blog <span class="text-sm">&#9662;</span></a>
+                <a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hidden md:flex space-x-4 justify-center items-center">
+
+                <a href="{% url 'login' %}">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Login
+                    </button>
+                </a>
+            </div>
+
+            <!-- Hamburger Menu -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="menu" class="md:hidden hidden bg-[#0B0F29]">
+            <a href="#" class="block px-4 py-2 text-red-500">Home</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">About</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">Jobs</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">Candidates</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">Pages</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">Blog</a>
+            <a href="#" class="block px-4 py-2 hover:text-gray-300">Contact Us</a>
+            <a href="#" class="block px-4 py-2 text-white hover:underline">Sign Up</a>
+            <a href="#" class="block px-4 py-2 bg-red-500 text-center text-white rounded-md hover:bg-red-600">Sign
+                In</a>
+        </div>
+    </nav>
+
+
+
+    <section>
+        <h1>Report {{ candidate.name }}</h1>
+
+        {% for result in category_results %}
+        <div class="report-container">
+            <div class="report-header">
+                {{ result.category.name }}
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Total Marks</th>
+                        <th>Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ result.total_marks }}</td>
+                        <td>{{ result.suggestion }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        {% empty %}
+        <div class="no-results">No results available.</div>
+        {% endfor %}
+
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
+    </section>
+
+
+
+      <!-- Footer Section -->
+      <footer class="bg-blue-900 text-white py-12">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- About Section -->
+            <div>
+                <h4 class="text-2xl font-bold mb-4 text-yellow-400">About Us</h4>
+                <p class="text-gray-300">
+                    At Recruitment Solutions, we merge technology and psychology to streamline faculty hiring, ensuring equitable and efficient recruitment for institutions seeking exceptional talent.
+                </p>
+            </div>
+    
+            <!-- Contact Section -->
+            <div>
+                <h4 class="text-2xl font-bold mb-4 text-yellow-400">Contact Us</h4>
+                <ul class="space-y-2 text-gray-300">
+                    <li>Email: <a href="mailto:support@recruitmentsolutions.com" class="hover:text-yellow-300">support@recruitmentsolutions.com</a></li>
+                    <li>Phone: +123 456 7890</li>
+                    <li>Address: 123 Innovation Drive, Tech City</li>
+                </ul>
+            </div>
+    
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-2xl font-bold mb-4 text-yellow-400">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-yellow-300">About Us</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Services</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Testimonials</a></li>
+                    <li><a href="#" class="hover:text-yellow-300">Privacy Policy</a></li>
+                </ul>
+            </div>
+    
+            <!-- Follow Us Section -->
+            <div>
+                <h4 class="text-2xl font-bold mb-4 text-yellow-400">Follow Us</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:scale-110 transition-transform">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHA8a-u1SWwHz3AVpXEnT-aTPbXAPmzkIb2A&s" alt="Facebook" class="rounded-full w-10">
+                    </a>
+                    <a href="#" class="hover:scale-110 transition-transform">
+                        <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png" alt="Twitter" class="rounded-full w-10">
+                    </a>
+                    <a href="#" class="hover:scale-110 transition-transform">
+                        <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" class="rounded-full w-10">
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="border-t border-gray-600 mt-8 pt-6 text-center text-gray-400">
+            <p>&copy; 2024 Recruitment Solutions. All rights reserved.</p>
+            <p>Crafted with <span class="text-red-500">&hearts;</span> by Recruitment Solutions Team</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Toggle -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

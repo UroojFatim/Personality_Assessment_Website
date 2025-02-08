@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add your styling here */
+    </style>
+</head>
+
+<body>
+    <div class="report-container">
+        <h1>Quiz Report</h1>
+
+        <p><strong>Name:</strong> <span>{{ candidate.name }}</span></p>
+        <p><strong>Profession:</strong> <span>{{ candidate.profession }}</span></p>
+
+        <p>Total Marks: <span>{{ result.total_marks }}</span></p>
+        <p>Percentage: <span>{{ result.percentage }}%</span></p>
+        <p>Suggestions: <span>{{ result.suggestions }}</span></p>
+
+        <!-- Button to save the report -->
+        {% if not report.saved %}
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit">Save Report</button>
+        </form>
+        {% else %}
+        <p>This report has already been saved.</p>
+        {% endif %}
+
+        <!-- Button to go back to the dashboard -->
+        <button onclick="window.location.href='/home/'">Return to Dashboard</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hover-transform:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .fade-in {
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+  
+    <!-- Navbar -->
+    <nav class="bg-blue-900   text-white">
+      <div class="container  mx-auto px-5 py-4 flex justify-between items-center">
+          <!-- Logo -->
+          <a href="#" class="flex items-center text-2xl font-semibold  p-2 rounded-lg">
+            <span>
+                {% load static %}
+                <img src="{% static 'images/logo2.png' %}" alt="Logo" class="w-16 h-auto rounded-2xl" />
+            </span>
+        </a>
+
+          <!-- Menu for Large Screens -->
+          <div class="hidden md:flex items-center space-x-6">
+              <a href="{% url 'base' %}" class="text-red-500">Home <span class="text-sm">&#9662;</span></a>
+              <a href="{% url 'about_us' %}" class="hover:text-gray-300">About Us</a>
+              <a href="#" class="hover:text-gray-300">Jobs <span class="text-sm">&#9662;</span></a>
+              <a href="#" class="hover:text-gray-300">Candidates <span class="text-sm">&#9662;</span></a>
+              <a href="#" class="hover:text-gray-300">Pages <span class="text-sm">&#9662;</span></a>
+              <a href="#" class="hover:text-gray-300">Blog <span class="text-sm">&#9662;</span></a>
+              <a href="{% url 'contact' %}" class="hover:text-gray-300">Contact Us</a>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="hidden md:flex space-x-4 justify-center items-center">
+
+              <a href="{% url 'base' %}">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                      Logout
+                  </button>
+              </a>
+          </div>
+
+          <!-- Hamburger Menu -->
+          <div class="md:hidden">
+              <button id="menu-btn" class="text-white focus:outline-none">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"></path>
+                  </svg>
+              </button>
+          </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="menu" class="md:hidden hidden bg-[#0B0F29]">
+          <a href="#" class="block px-4 py-2 text-red-500">Home</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">About</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">Jobs</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">Candidates</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">Pages</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">Blog</a>
+          <a href="#" class="block px-4 py-2 hover:text-gray-300">Contact Us</a>
+          <a href="#" class="block px-4 py-2 text-white hover:underline">Sign Up</a>
+          <a href="#" class="block px-4 py-2 bg-red-500 text-center text-white rounded-md hover:bg-red-600">Sign
+              In</a>
+      </div>
+  </nav>
+
+
+  <section class="bg-gradient-to-r from-blue-50 via-white to-brown-50 text-gray-800">
+    <main class="container mx-auto px-6 py-12">
+        <section class="text-center">
+            <h2 class="text-5xl font-extrabold text-blue-700 mb-6 fade-in">About Us</h2>
+            <p class="text-xl text-gray-700 max-w-3xl mx-auto fade-in">
+                At Recruitment Solutions, we merge technology and psychology to transform faculty hiring. With innovative tools, we ensure equitable and efficient recruitment for institutions seeking exceptional talent.
+            </p>
+        </section>
+
+        <section class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-blue-100 p-6 rounded-lg shadow-lg hover-transform">
+                <img src="https://img.freepik.com/premium-photo/man-touching-mission-text-screen_218381-4228.jpg" alt="Mission" class="rounded-lg mb-4 w-96 h-52">
+                <h3 class="text-3xl font-semibold text-blue-700 mb-4">Our Mission</h3>
+                <p class="text-gray-700">
+                    Streamlining recruitment processes with cutting-edge psychometric tools and technology, ensuring the best candidates are chosen.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg border-brown-500 border hover-transform">
+                <img src="https://www.iaam.se/img/Our%20Vision%20&%20Mission/Pic%201%20-%20640%20X%20426px%20Vision.jpg" alt="Vision" class="rounded-lg mb-4 w-96 h-52">
+                <h3 class="text-3xl font-semibold text-brown-700 mb-4 ">Our Vision</h3>
+                <p class="text-gray-700">
+                    Revolutionizing hiring by blending psychological insights and technology to create diverse, competent workforces.
+                </p>
+            </div>
+
+            <div class="bg-blue-100 p-6 rounded-lg shadow-lg hover-transform">
+                <img src="https://pg.bowen.edu.ng/wp-content/uploads/2020/09/our-team_01.jpg" alt="Team" class="rounded-lg mb-4 w-96 h-52">
+                <h3 class="text-3xl font-semibold text-blue-700 mb-4">Our Team</h3>
+                <p class="text-gray-700">
+                    A dynamic collaboration of software engineers and psychologists dedicated to building impactful recruitment systems.
+                </p>
+            </div>
+        </section>
+
+        <section class="mt-16">
+            <div class="bg-gradient-to-r from-blue-600 to-brown-500 p-10 rounded-lg shadow-lg text-white text-center">
+                <h3 class="text-4xl font-extrabold mb-4">Why Choose Us?</h3>
+                <p class="text-lg max-w-2xl mx-auto">
+                    By integrating technology with psychological principles, we ensure that institutions find candidates who are not just skilled but also culturally aligned and ethically grounded.
+                </p>
+                <div class="mt-6">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC5ZzAdQBm8ICHqYm5nbB-LSubJzK-D6ZQQw&s" alt="Why Choose Us" class="rounded-lg mx-auto">
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 text-center">
+            <h3 class="text-4xl font-bold text-gray-800 mb-6">What Sets Us Apart</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 rounded-lg shadow-lg bg-white hover-transform">
+                    <img src="https://cdn11.bigcommerce.com/s-mzcqwxp3qu/images/stencil/1193x795/uploaded_images/-innovative-workshop-tools-of-2023-high-tech-hand-tools-making-a-difference.jpg?t=1701027829" alt="Innovative Tools" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold text-blue-700 mb-2">Innovative Tools</h4>
+                    <p>Utilizing the latest technology to simplify recruitment while maintaining accuracy and fairness.</p>
+                </div>
+                <div class="p-6 rounded-lg shadow-lg bg-white hover-transform">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpbuw-RoBEDdvXbSn2K-hJUfD4guguLBehCA&s" alt="Expert Team" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold text-blue-700 mb-2">Expert Team</h4>
+                    <p>A dedicated team of experts from software engineering and psychology ensures robust solutions.</p>
+                </div>
+                <div class="p-6 rounded-lg shadow-lg bg-white hover-transform">
+                    <img src="https://www.securitymagazine.com/ext/resources/images/ethical-security-privacyfp1170x.jpg?1670013904" alt="Ethical Practices" class="mx-auto mb-4">
+                    <h4 class="text-2xl font-semibold text-blue-700 mb-2">Ethical Practices</h4>
+                    <p>Adhering to the highest standards of data security, privacy, and unbiased evaluations.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+  </section>
+
+  <footer class="bg-blue-900 text-white py-12">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        <!-- About Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">About Us</h4>
+            <p class="text-gray-300">
+                At Recruitment Solutions, we merge technology and psychology to streamline faculty hiring, ensuring equitable and efficient recruitment for institutions seeking exceptional talent.
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Contact Us</h4>
+            <ul class="space-y-2 text-gray-300">
+                <li>Email: <a href="mailto:support@recruitmentsolutions.com" class="hover:text-yellow-300">support@recruitmentsolutions.com</a></li>
+                <li>Phone: +123 456 7890</li>
+                <li>Address: 123 Innovation Drive, Tech City</li>
+            </ul>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Quick Links</h4>
+            <ul class="space-y-2">
+                <li><a href="#" class="hover:text-yellow-300">About Us</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Services</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Testimonials</a></li>
+                <li><a href="#" class="hover:text-yellow-300">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div>
+            <h4 class="text-2xl font-bold mb-4 text-yellow-400">Follow Us</h4>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHA8a-u1SWwHz3AVpXEnT-aTPbXAPmzkIb2A&s" alt="Facebook" class="rounded-full w-10">
+                </a>
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_twitter-512.png" alt="Twitter" class="rounded-full w-10">
+                </a>
+                <a href="#" class="hover:scale-110 transition-transform">
+                    <img src="https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png" alt="LinkedIn" class="rounded-full w-10">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-600 mt-8 pt-6 text-center text-gray-400">
+        <p>&copy; 2024 Recruitment Solutions. All rights reserved.</p>
+        <p>Crafted with <span class="text-red-500">&hearts;</span> by Recruitment Solutions Team</p>
+    </div>
+</footer>
+
+    <script>
+        console.log("About Us page loaded with enhanced design.");
+    </script>
+s
+</body>
+</html>
